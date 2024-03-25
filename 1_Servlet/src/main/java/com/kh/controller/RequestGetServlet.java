@@ -111,7 +111,7 @@ public class RequestGetServlet extends HttpServlet {
 		
 		out.printf("성별은 ");
 		if(gender == null) {
-			out.println("선택하지 않는다.");
+			out.println("선택하지 않았습니다.");
 		} else {
 			if (gender.equals("M")) {
 				out.println("<span>남자입니다.</span>");

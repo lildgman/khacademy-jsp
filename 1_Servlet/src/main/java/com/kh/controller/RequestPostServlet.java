@@ -33,6 +33,7 @@ public class RequestPostServlet extends HttpServlet {
 		
 		//POST 방식 요청 같은 경우에는
 		//데이터를 추출하기 전에 인코딩설정을 해야함
+		//바디부분에 담겨오기 때문에 인코딩형식이 달라질 수 있다.
 		request.setCharacterEncoding("UTF-8");
 		// 요청 시 전달된 값들은 request의 parameter 영역에 담겨있다.
 		
