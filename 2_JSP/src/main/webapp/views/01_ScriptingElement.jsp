@@ -42,8 +42,7 @@
             for (String name : nameArr) { %>
                 <li><%=name%></li>
             <%} 
-        %>
-        
+        %> 
     </ul>
 </body>
 </html>
