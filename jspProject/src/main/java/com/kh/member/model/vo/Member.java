@@ -38,10 +38,24 @@ public class Member {
 		this.phone = phone;
 		this.email = email;
 		this.address = address;
-		Interest = interest;
+		this.Interest = interest;
 		this.enrollDate = enrollDate;
-		ModifyDate = modifyDate;
+		this.ModifyDate = modifyDate;
 		this.status = status;
+	}
+	
+	
+
+	public Member(String userId, String userPwd, String userName, String phone, String email, String address,
+			String interest) {
+		super();
+		this.userId = userId;
+		this.userPwd = userPwd;
+		this.userName = userName;
+		this.phone = phone;
+		this.email = email;
+		this.address = address;
+		Interest = interest;
 	}
 
 	public int getUserNo() {

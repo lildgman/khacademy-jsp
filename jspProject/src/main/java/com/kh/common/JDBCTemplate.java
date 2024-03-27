@@ -12,7 +12,7 @@ import java.util.Properties;
 public class JDBCTemplate {
 	
 	//1. Connection 객체 생성 후 Connection 객체 반환시켜주는 getConnection 메서드
-	public static Connection getConnetcion() {
+	public static Connection getConnection() {
 		Connection conn = null;
 		Properties prop = new Properties();
 		
