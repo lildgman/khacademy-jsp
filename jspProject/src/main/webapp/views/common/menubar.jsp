@@ -16,7 +16,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -100,12 +100,13 @@
         </script>
         
         </form>
+        
         <% } else { %>
         <!-- 로그인 후 -->
         <div>
             <b><%=loginUser.getUserName()%></b>님의 방문을 환영합니다. <br><br>
             <div align="center">
-                <a href="">마이페이지</a>
+                <a href="<%=contextPath %>/myPage.me">마이페이지</a>
                 <a href="<%=contextPath %>/logout.me">로그아웃</a>
             </div>
         </div> 
@@ -116,11 +117,11 @@
 
     <div class="nav-area" align="center">
         <div class="menu">
-            <a href="">HOME</a>
+            <a href="<%=contextPath%>">HOME</a>
         </div>
 
         <div class="menu">
-            <a href="">공지사항</a>
+            <a href="<%=contextPath%>/list.no">공지사항</a>
         </div>
 
         <div class="menu">

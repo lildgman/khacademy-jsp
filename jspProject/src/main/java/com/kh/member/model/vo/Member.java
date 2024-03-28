@@ -58,6 +58,18 @@ public class Member {
 		Interest = interest;
 	}
 
+	public Member(String userId, String userName, String phone, String email, String address, String interest) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.phone = phone;
+		this.email = email;
+		this.address = address;
+		Interest = interest;
+	}
+
+	
+	
 	public int getUserNo() {
 		return userNo;
 	}

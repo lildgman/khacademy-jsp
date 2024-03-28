@@ -32,7 +32,6 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("로그인 정보 도착!");
 		
 		// 1) 전달값에 한글이 있을 경우 인코딩 처리(POST)
 		request.setCharacterEncoding("UTF-8");

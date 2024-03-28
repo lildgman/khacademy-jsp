@@ -99,5 +99,96 @@ public class MemberDao {
 		return result;
 	}
 
+	public int updateMember(Connection conn, Member member) {
+		// update -> 처리된 행 수 => 트랜잭션 처
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getUserName());
+			pstmt.setString(2, member.getPhone());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getAddress());
+			pstmt.setString(5, member.getInterest());
+			pstmt.setString(6, member.getUserId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+		
+	}
+
+	public Member selectMember(Connection conn, String userId) {
+		// select -> resultset에 1행만 돌아오게 됨 -> Member 객체에 담아서 보내자
+		
+		Member member = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				member = new Member(
+						rset.getInt("user_no"),
+						rset.getString("user_id"),
+						rset.getString("user_pwd"),
+						rset.getString("user_name"),
+						rset.getString("phone"),
+						rset.getString("email"),
+						rset.getString("address"),
+						rset.getString("interest"),
+						rset.getDate("enroll_date"),
+						rset.getDate("modify_date"),
+						rset.getString("status")
+						);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return member;
+	}
+
+	public int updatePwd(Connection conn, String userId, String userPwd, String updatePwd) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updatePwd");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, updatePwd);
+			pstmt.setString(2, userId);
+			pstmt.setString(3, userPwd);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+
 	
 }

@@ -34,5 +34,39 @@ public class MemberService {
 		close(conn);
 		return result;
 	}
+
+	public Member updateMember(Member member) {
+		Connection conn = getConnection();
+		int result = new MemberDao().updateMember(conn, member);
+		Member updateMember = null;
+		
+		if(result > 0) {
+			commit(conn);
+			// 갱신된 회원 객체 다시 조회해오기 잊지말자!
+			updateMember = new MemberDao().selectMember(conn, member.getUserId());
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		return updateMember;
+	}
+
+	public Member updatePwd(String userId, String userPwd, String updatePwd) {
+		Connection conn = getConnection();
+		int result = new MemberDao().updatePwd(conn, userId, userPwd ,updatePwd);
+		Member updateMember = null;
+		if(result > 0) {
+			commit(conn);
+			// db에서 불러와야함-> 변경됐는지 안됐는지 확인해야되자너
+			updateMember = new MemberDao().selectMember(conn, userId);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		return updateMember;
+		
+	}
 }
  
