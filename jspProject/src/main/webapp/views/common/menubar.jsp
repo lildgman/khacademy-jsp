@@ -64,6 +64,7 @@
         </script>
         <% session.removeAttribute("alertMsg"); %>
     <%} %>
+    
 	<h1 align="center">Welcome KH World</h1>
     <div class="login-area">
         <% if(loginUser == null) { %>
@@ -98,7 +99,6 @@
             	//단순한 페이지 요청도 servlet을 거쳐갈 것(즉, url에는 서블릿 맵핑값만 나타나도록)
             }
         </script>
-        
         </form>
         
         <% } else { %>
@@ -125,11 +125,11 @@
         </div>
 
         <div class="menu">
-            <a href="">일반게시판</a>
+            <a href="<%=contextPath%>/list.bo?cpage=1">일반게시판</a>
         </div>
 
         <div class="menu">
-            <a href="">사진게시판</a>
+            <a href="<%=contextPath %>/list.th">사진게시판</a>
         </div>
 
     </div>

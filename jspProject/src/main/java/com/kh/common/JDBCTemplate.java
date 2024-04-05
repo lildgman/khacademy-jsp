@@ -13,6 +13,7 @@ public class JDBCTemplate {
 	
 	//1. Connection 객체 생성 후 Connection 객체 반환시켜주는 getConnection 메서드
 	public static Connection getConnection() {
+		
 		Connection conn = null;
 		Properties prop = new Properties();
 		
@@ -81,7 +82,6 @@ public class JDBCTemplate {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	// 6. ResultSet 객체 전달 받아서 반납시켜주는 메서드

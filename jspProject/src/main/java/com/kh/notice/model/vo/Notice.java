@@ -11,6 +11,10 @@ public class Notice {
 	private Date create_date;
 	private String status;
 	
+	public Notice() {
+		super();
+	}
+	
 	public Notice(int notice_no, String title, String content, String writer, int count, Date create_date, String status) {
 		super();
 		this.notice_no = notice_no;
@@ -33,6 +37,23 @@ public class Notice {
 		this.create_date = create_date;
 	}
 
+
+	public Notice(String title, String content) {
+		super();
+		this.title = title;
+		this.content = content;
+	}
+
+
+
+	public Notice(int notice_no, String title, String content, String writer, Date create_date) {
+		super();
+		this.notice_no = notice_no;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.create_date = create_date;
+	}
 
 
 	public int getNotice_no() {

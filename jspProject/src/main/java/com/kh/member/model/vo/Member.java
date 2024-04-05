@@ -19,6 +19,14 @@ public class Member {
 	public Member() {
 		super();
 	}
+	
+	public Member(int userNo, String userName, String phone) {
+		super();
+		this.userNo = userNo;
+		this.userName = userName;
+		this.phone = phone;
+	}
+
 
 	public String getUserPwd() {
 		return userPwd;

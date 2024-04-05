@@ -1,0 +1,49 @@
+*{
+  box-sizing: border-box;
+}
+
+#content-container {
+  width: 1800px;
+  height: 1000px;
+  padding: 50px;
+  border: 1px solid black;
+  display:flex;
+  justify-content: space-between;
+}
+
+.left-container {
+  width: 700px;
+  height: 800px;
+  border: 1px solid red;
+  padding: 50px;
+}
+
+.right-container {
+  width: 880px;
+  height: 800px;
+  border: 1px solid blue;
+}
+
+.workout-table {
+  width: 600px;
+  border: 1px solid brown;
+  margin-top: 20px;
+  
+}
+
+th, td {
+  text-align: center;
+}
+
+tr{
+  margin:50px
+}
+
+tr:hover {
+  background-color: yellow;
+}
+
+.workoutTable>tr {
+  margin-top: 20px;
+}
+

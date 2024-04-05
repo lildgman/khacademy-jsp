@@ -29,6 +29,7 @@ public class MyPageController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// 로그인 전에 url쳐서 직접 요청도 가능함
 		// 로그인 후에 요청
 		

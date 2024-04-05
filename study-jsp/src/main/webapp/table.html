@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <style>
+    table {
+      margin-top: 20px;
+      border-collapse: separate;
+      border-spacing: 20px;
+    }
+
+    tr {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td>
+        <input type="checkbox" name="workout" onclick="checkOnlyOne(this)">
+      </td>
+      <td>가슴</td>
+      <td>벤치프레스</td>
+
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="workout" onclick="checkOnlyOne(this)">
+      </td>
+      <td>가슴</td>
+      <td>벤치프레스</td>
+
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="workout" onclick="checkOnlyOne(this)">
+      </td>
+      <td>가슴</td>
+      <td>벤치프레스</td>
+
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="workout" onclick="checkOnlyOne(this)">
+      </td>
+      <td>가슴</td>
+      <td>벤치프레스</td>
+
+    </tr>
+  </table>
+  <script>
+    function checkOnlyOne(element) {
+      const checkboxes = document.querySelectorAll("input[name=workout]");
+
+      checkboxes.forEach((cb) => {
+        cb.checked = false;
+      })
+
+      element.checked = true;
+    }
+  </script>
+
+  <table id="workout">
+    <tr>
+      <td style="width: 100px;">벤치프레스</td>
+      <td>가슴</td>
+      <td>
+        <button id="addSetBtn">세트 추가</button>
+      </td>
+    </tr>
+    <tr>
+      <td>세트</td>
+      <td>중량</td>
+      <td>횟수</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>
+        <input type="number" placeholder="kg">
+      </td>
+      <td>
+        <input type="number" placeholder="개">
+      </td>
+    </tr>
+  </table>
+  <script>
+    $(function () {
+      let i = 1;
+      $("#addSetBtn").click(function () {
+        
+      let str3 = `<tr>
+      <td>`+ (1 + i)+`</td>
+      <td>
+        <input type="number" placeholder="kg">
+      </td>
+      <td>
+        <input type="number" placeholder="개">
+      </td>
+    </tr>`;
+      i = i+1;
+        $("#workout").append(str3);
+      })
+    })
+  </script>
+
+</body>
+
+</html>
