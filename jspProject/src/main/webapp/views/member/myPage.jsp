@@ -118,18 +118,6 @@
         </form>
     </div>
 
-    <script>
-        function checkPwd() {
-            const pwd = document.querySelector('#enroll-form input[name=userPwd]').value;
-            const pwdCheck = document.querySelector('#enroll-form input[name=userPwdCheck]').value;
-
-            if(pwd !== pwdCheck) {
-                alert("비밀번호가 일치하지 않습니다.")
-                return false;
-            } 
-
-        }
-    </script>
 
   <!-- The 비밀번호 변경Modal -->
   <div class="modal" id="update-pwd-modal">

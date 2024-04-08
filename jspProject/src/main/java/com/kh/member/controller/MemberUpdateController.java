@@ -65,7 +65,6 @@ public class MemberUpdateController extends HttpServlet {
 			
 			// url 재요청 -> 마이페이지 재요청 (/kh/myPage.me)
 			response.sendRedirect(request.getContextPath()+"/myPage.me");
-			
 		}
 		
 	}
