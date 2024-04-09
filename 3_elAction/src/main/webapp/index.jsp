@@ -38,8 +38,45 @@
 	 <a href="views/2_Standard_Action_Tag/01_include.jsp">01_jsp:include</a><br>
 	 <a href="views/2_Standard_Action_Tag/02_forward.jsp">02_jsp:forward</a><br>
 	 
-	 <h3>* Custom Action Tag</h3>
+	 
+	 <h1>JSTL이란?</h1>
+	 <p> 
+	 	JSP에서 사용되는 커스텀액션태그로 <br>
+	 	공통적으로 자주 사용되는 코드들을 집합하여 보다 쉽게 사용할 수 있도록 태그화하여 표준으로 제공하는 라이브러리
+	 </p>
+	 <h3>라이브러리 추가 필요</h3>
+	 1) 톰캣사이트 접속 <br>
+	 2) 메뉴바에서 taglib 메뉴 접속 <br>
+	 3) 4개의 라이브러리 전부 다운로드 <br>
+	 4) WEB-INF/lib/에 파일 추가 <br>
+	 
+	 <h3>JSTL 선언방법</h3>
+	 <p>
+	 	JSTL을 사용하고자하는 해당 jsp 페이지 상단에 <br>
+	 	taglib 지시어를 사용해서 선언 <br><br>
+	 	
+	 	&lt; %@ taglib prefix="접두어" uri="라이브러리 파일상의 uri주소" %&gt;
+	 </p>
+	 
+	 <h3>* Custom Action Tag</h3><br>
+	 <h4>1. JSTL Core Library</h4>
+	 <p>변수와 조건문, 반복문 등 로직과 관련된 문법을 제공한다.</p>
 	 <a href="views/3_Custom_Action_Tag/01_core.jsp">1. core</a>
+	 
+	 <h4>2. JSTL Formatting Library</h4>
+	 <p>
+	 	숫자, 날짜 및 시간 데이터 출력 형식을 지정할 때 사용하는 문법을 제공
+	 </p>
+	 <a href="views/3_Custom_Action_Tag/02_fmt.jsp">fmt library</a>
+	 
+	 <h4>3. JSTL function Library</h4>
+	 <p>
+	 	EL안에서 사용할 수 있는 메소드를 제공
+	 </p>
+	 
+	 <a href="views/3_Custom_Action_Tag/03_fn.jsp">
+		fn library
+	 </a>
 	 
 	 
 </body>

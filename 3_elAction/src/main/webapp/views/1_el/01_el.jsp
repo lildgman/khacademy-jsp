@@ -20,7 +20,6 @@
 			Person teacher = (Person)session.getAttribute("teacher");
 			
 		%>
-	
 	<p>
 		학원명 : <%=academy %>
 		강의장 : <%=classroom %>

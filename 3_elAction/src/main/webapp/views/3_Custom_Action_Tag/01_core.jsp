@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList, com.kh.model.vo.Person"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -101,7 +102,7 @@
 		<c:when test="${num1 gt 20 }">
 			num1은 20보다 크다
 		</c:when>
-		<c:when test="${num1 gt 10 }">
+		<c:when test="${num1 ge 10 }">
 			num1은 10보다 크다
 		</c:when>
 		
@@ -109,5 +110,136 @@
 			맞는게 없어
 		</c:otherwise>
 	</c:choose>
+	
+	<h3>4. 반복문 - forEach</h3>
+	<pre>
+		for loop문 - (c:forEach var="변수명" begin="초기값" end="끝값" [step="반복 시 증가값"])
+		향상된 for문 - (c:forEach var="변수명" items="순차적으로 접근하고자 하는 객체(배열/컬렉션)" [varStatus="현재접근된 요소의 상태값"])
+	</pre>
+	
+	<%-- 
+	<%for(int i=1;i<=10;i+=2) { %>
+		
+	
+	<% } %>
+	--%>
+	
+	<c:forEach var="i" begin="1" end="10" step="2">
+		반복확인 : ${i } <br>
+	</c:forEach>
+	
+	
+	<c:forEach var="i" begin="1" end="6">
+		<h${i }>ㅎㅇ</h${i }>
+	</c:forEach>
+	
+	<c:set var="colors">
+		red, yellow, green, pink
+	</c:set>
+	
+	colors 변수 : ${colors }<br> 
+	
+	<ul>
+		<c:forEach var="c" items="${colors}">
+			<li style="color: ${c}">${c }</li>
+		</c:forEach>
+	</ul>
+	
+	<%
+		ArrayList<Person> list = new ArrayList<>();
+		list.add(new Person("odg1", 20, "남"));
+		list.add(new Person("odg2", 25, "여"));
+		list.add(new Person("odg3", 28, "남"));
+	%>
+	<c:set var="plist" value="<%=list %>" scope="request" />
+	
+	<table>
+		<thead>
+			<th>번호</th>
+			<th>이름</th>
+			<th>나이</th>
+			<th>성별</th>
+		</thead>
+		<tbody>
+			<%-- 
+				<% if(list.isEmpty()) { %>
+				<tr>
+					<td colspan="3">
+						조회된 사람이 없습니다.
+					</td>
+				</tr>
+			<% } else {%>
+				<% for(Person p : list) { %>
+					<tr>
+						<td><%=p.getName() %></td>
+						<td><%=p.getAge() %></td>
+						<td><%=p.getGender() %></td>
+					</tr>
+				<% } %>
+			<% } %>
+			--%>
+
+			<c:choose>
+				<c:when test="${empty plist }">
+					<tr>
+						<td colspan="3">
+							조회된 사람이 없습니다.
+						</td>
+					</tr>
+				</c:when>
+				
+				<c:otherwise>
+					<c:forEach var="person" items="${plist }" varStatus="status">
+						<tr>
+							<td>
+								${status.count }
+							</td>
+							<td>
+								${person.name }
+							</td>
+							<td>
+								${person.age }
+							</td>
+							<td>
+								${person.gender }
+							</td>
+						</tr>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</tbody>
+	</table>
+	
+	
+	<h3>5. 반복문 - forTokens</h3>
+	<pre>
+	(c:forTokens var="변수명" items="분리하고싶은 문자열" delims="구분자")
+	- 구분자를 통해서 분리된 각각의 문자열에 순차적으로 접근하면서 반복 수행
+	- JAVA의 문자열.split("구분자")과 유사하다.
+	</pre>
+	
+	<c:set var="device" value="컴퓨터/노트북,모니터.핸드폰/냉장고" />
+	
+	<ol>
+		<c:forTokens var="d" items="${device }" delims=",/.">
+			<li>${d }</li>
+		</c:forTokens>
+	</ol>
+	
+	<h3>6. url쿼리스트링</h3>
+	<pre>
+	-url경로를 생성하고, 쿼리스트링을 정의해둘 수 있는 태그
+	
+	c:url var="변수명" value="요청url"
+		c:param name="키값" value="전달할값"
+	/c:url
+	</pre>
+	
+	<a href="list.do?cpage=1&num=2">기존방식</a>
+	<c:url var="listUrl" value="list.do">
+		<c:param name="cpage" value="1" />
+		<c:param name="num" value="2" />
+	</c:url>
+	<a href="${listUrl }">c:url 이용한 방식</a>
 </body>
 </html>
