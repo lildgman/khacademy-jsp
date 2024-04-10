@@ -194,8 +194,9 @@
                 <br><br>
                 <button type="submit" class="btn btn-sm btn-danger">탈퇴하기</button>
             </form>
-  
           </div>
+        </div>
+    </div>
   </div>
     
 </body>

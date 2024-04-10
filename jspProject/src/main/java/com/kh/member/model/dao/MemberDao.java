@@ -10,8 +10,6 @@ import java.sql.SQLException;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
 import static com.kh.common.JDBCTemplate.close;
-import static com.kh.common.JDBCTemplate.commit;
-import static com.kh.common.JDBCTemplate.rollback;
 
 import com.kh.member.model.vo.Member;
 
