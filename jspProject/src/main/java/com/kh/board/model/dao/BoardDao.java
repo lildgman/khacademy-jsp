@@ -228,8 +228,7 @@ public class BoardDao {
 		} finally {
 			close(pstmt);
 		}
-		
-		
+
 		return result;
 	}
 
